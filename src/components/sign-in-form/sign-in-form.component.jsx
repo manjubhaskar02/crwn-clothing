@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { createUserDocumentFromAuth, signInAuthUserWithEmailAndPassword, signInWithGooglePopup } from "../../utils/firebase/firebase.utils";
+import { signInAuthUserWithEmailAndPassword, signInWithGooglePopup } from "../../utils/firebase/firebase.utils";
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 import FormInput from "../form-input/form-input.component";
 import { ButtonsContainer, SignUpContainer } from "./sign-in-form.styles.jsx";
@@ -30,7 +30,7 @@ const SignInForm = () => {
 
 
         try {
-            const { user } = await signInAuthUserWithEmailAndPassword(email, password);
+            const { } = await signInAuthUserWithEmailAndPassword(email, password);
             // console.log(response)
             resetFormFields()
         } catch (error) {
@@ -44,7 +44,7 @@ const SignInForm = () => {
             //     default:
             //         console.log(error)
             // }
-            if (error.code == 'auth/invalid-credential') {
+            if (error.code === 'auth/invalid-credential') {
                 alert('incorrect password or email')
             }
             // console.log(error)
